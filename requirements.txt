@@ -1,0 +1,16 @@
+beanie~=1.7.0
+flask[async]~=2.0.2
+motor~=2.5.1
+dnspython
+aiohttp
+asgiref
+hypercorn
+apispec
+marshmallow
+flask-restx
+quart
+git+https://github.com/alex-sherman/unsync.git@v1.3.2
+pydantic
+pyjwt
+pytest
+pytest-asyncio
