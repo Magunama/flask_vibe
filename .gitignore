@@ -1,0 +1,6 @@
+venv/
+todo/
+
+.idea/
+
+*.log
