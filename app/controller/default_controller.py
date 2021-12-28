@@ -35,6 +35,12 @@ def unauthorized_access(e):
     return jsonify(error=str(e)), 401
 
 
+@default_blueprint.app_errorhandler(werkzeug.exceptions.NotAcceptable)
+def headers_not_acceptable(e):
+    """APP Error Handler"""
+    return jsonify(error=str(e)), 406
+
+
 @default_blueprint.after_app_request
 def after_request(response):
     timestamp = strftime('[%Y-%b-%d %H:%M]')

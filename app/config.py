@@ -5,7 +5,8 @@ logging.basicConfig(filename='filename.log', level=logging.INFO, format=logging_
 
 
 class Config:
-    pass
+    MAX_CONTENT_LENGTH = 1024 * 1024
+    UPLOAD_EXTENSIONS = [".csv"]
 
 
 class DevelopmentConfig(Config):
