@@ -34,11 +34,15 @@ ani_anime = """
                     edges{
                         relationType
                         node{
+                            id
                             title{
                                 romaji
+                                english
                             }
                             siteUrl
-                            type
+                            coverImage {
+                                 large
+                            }
                         }
                     }
                 }
@@ -84,11 +88,15 @@ ani_manga = """
                     edges{
                         relationType
                         node{
+                            id
                             title{
                                 romaji
+                                english
                             }
                             siteUrl
-                            type
+                            coverImage {
+                                large
+                            }
                         }
                     }
                 }

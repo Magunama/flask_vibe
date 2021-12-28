@@ -4,6 +4,7 @@ from beanie import Document
 
 from app.models.media.media_cover import MediaCover
 from app.models.media.media_format import MediaFormat
+from app.models.media.media_relation import MediaRelation
 from app.models.media.media_status import MediaStatus
 from app.models.media.media_title import MediaTitle
 from app.models.media.media_type import MediaType
@@ -19,5 +20,6 @@ class Media(Document):
     format: MediaFormat
     status: MediaStatus
     genres: list
-    averageScore: int
+    averageScore: typing.Optional[int]
     meanScore: int
+    relations: MediaRelation
