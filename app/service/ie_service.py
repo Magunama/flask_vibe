@@ -8,6 +8,8 @@ from io import StringIO
 from flask import current_app
 from werkzeug.utils import secure_filename
 
+from app.models.media.anime import Anime
+from app.models.media.manga import Manga
 from app.models.media.media import Media
 
 
@@ -72,3 +74,8 @@ class IEService:
             return False
 
         return True
+
+    @staticmethod
+    async def depopulate_media():
+        await Anime.find_all(not Anime.should_persist).delete()
+        await Manga.find_all(not Manga.should_persist).delete()

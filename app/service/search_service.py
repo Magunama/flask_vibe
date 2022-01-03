@@ -1,5 +1,4 @@
 import typing
-from datetime import date
 
 from app.models.media.anime import Anime
 from app.models.media.manga import Manga
@@ -68,17 +67,8 @@ class SearchService:
         return data
 
     @staticmethod
-    def _should_persist(m: typing.Union[Anime, Manga]) -> bool:
-        """returns whether media is from current season year"""
-        if type(m) is Anime:
-            today = date.today()
-            if m.seasonYear == today.year:
-                return True
-        return False
-
-    @staticmethod
     async def persist_relevant_media(converted_media: list[typing.Union[Anime, Manga]]):
-        media_should_persist = list(filter(lambda m: SearchService._should_persist(m), converted_media))
+        media_should_persist = list(filter(lambda m: m.should_persist, converted_media))
         if not media_should_persist:
             return
 

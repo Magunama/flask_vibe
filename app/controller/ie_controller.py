@@ -62,3 +62,10 @@ async def import_manga():
         return Response(imported_data, mimetype="application/json")
 
     abort(405)  # wrong input
+
+
+@ie_blueprint.route("/delete", methods=["DELETE"])
+@ie_blueprint.route("/depopulate", methods=["DELETE"])
+async def depopulate_media():
+    await IEService.depopulate_media()
+    return {}
